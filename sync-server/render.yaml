@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: reno-sync
+    runtime: node
+    plan: free
+    region: oregon          # 选离你近的，但免费版区域有限
+    branch: main
+    buildCommand: "true"
+    startCommand: "node server.js"
+    envVars:
+      - key: SYNC_TOKEN
+        sync: false          # 部署时在 Render 后台手动填一个强随机串
+      - key: PORT
+        sync: false
